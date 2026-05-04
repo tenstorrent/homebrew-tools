@@ -2,6 +2,17 @@
 
 Homebrew tap with Tracy formulae from **[tenstorrent/tracy](https://github.com/tenstorrent/tracy)**.
 
+## Overview
+
+This tap provides two Homebrew formulae for the [Tracy](https://github.com/wolfpld/tracy) frame profiler built from the [Tenstorrent fork](https://github.com/tenstorrent/tracy):
+
+| Formula | Source | Use case |
+|---|---|---|
+| `tracy` | Pinned release tag + checksum | Stable, reproducible installs |
+| `tracy-experimental` | Arbitrary branch via `HOMEBREW_TRACY_BRANCH` | Testing unreleased branches |
+
+Both formulae install a `tracy` binary (the profiler GUI) and **cannot be installed simultaneously**.
+
 ---
 
 ## 1. Stable Tracy (pinned release tag)
@@ -25,7 +36,7 @@ brew upgrade tenstorrent/tools/tracy
 
 ### Clean slate install
 
-If other versions of tracy gui were tried switching to the latest stable version is required:
+If other versions of the Tracy GUI were installed, switch to the latest stable version:
 
 ```bash
 brew uninstall tracy 2>/dev/null || true
@@ -63,3 +74,23 @@ brew link tracy-experimental --overwrite
 brew update
 HOMEBREW_TRACY_BRANCH=your/feature-branch brew reinstall tenstorrent/tools/tracy-experimental --build-from-source
 ```
+
+---
+
+## Contributing
+
+Bug reports and pull requests are welcome via [GitHub Issues](https://github.com/tenstorrent/homebrew-tools/issues) and [Pull Requests](https://github.com/tenstorrent/homebrew-tools/pulls). See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+To bump the stable `tracy` formula to a new release tag or commit, use the helper script:
+
+```bash
+./scripts/bump_tracy_formula.py v0.13.4-tt.0
+```
+
+---
+
+## License
+
+Copyright 2026 Tenstorrent USA, Inc.
+
+The formulae and scripts in this repository are licensed under the [Apache License 2.0](LICENSE). Tracy itself is licensed under the [BSD 3-Clause License](https://github.com/wolfpld/tracy/blob/master/LICENSE).

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
 """
 Bump Formula/tracy.rb stable url + sha256 for a tenstorrent/tracy tag or commit.
 
