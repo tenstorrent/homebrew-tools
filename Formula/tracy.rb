@@ -1,11 +1,12 @@
 # SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 Tenstorrent USA, Inc.
 class Tracy < Formula
   desc "Real-time, nanosecond resolution frame profiler (Tenstorrent fork)"
   homepage "https://github.com/wolfpld/tracy"
 
   # Stable: pinned GitHub archive + checksum (bump via scripts/bump_tracy_formula.py).
   stable do
-    url "https://github.com/tenstorrent/tracy/archive/refs/tags/v0.13.3-tt.0-test.tar.gz"
+    url "https://github.com/tenstorrent/tracy/archive/refs/tags/v0.13.3-tt.0.tar.gz"
     sha256 "d19e9a4c9a1ac7d4fb76534ccb2a36ae8bd771a23092e81a72ffd02e2f769a25"
   end
 
