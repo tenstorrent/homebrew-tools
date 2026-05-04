@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 class Tracy < Formula
   desc "Real-time, nanosecond resolution frame profiler (Tenstorrent fork)"
   homepage "https://github.com/wolfpld/tracy"
