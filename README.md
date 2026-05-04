@@ -15,17 +15,17 @@ Both formulae install a `tracy` binary (the profiler GUI) and **cannot be instal
 
 ---
 
-## 1. Stable Tracy (pinned release tag)
+## Getting Started
 
-Latest **stable** build comes from `Formula/tracy.rb` (fixed version + checksum).
-
-### Install from scratch
+For a normal install of the latest **stable** Tracy GUI:
 
 ```bash
 brew tap tenstorrent/tools
 brew update
 brew install tenstorrent/tools/tracy
 ```
+
+See the sections below for upgrades, clean installs, and building from a custom branch (`tracy-experimental`).
 
 ### Upgrade to the latest stable
 
@@ -34,7 +34,7 @@ brew update
 brew upgrade tenstorrent/tools/tracy
 ```
 
-### Clean slate install
+### Clean install of the latest stable
 
 If other versions of the Tracy GUI were installed, switch to the latest stable version:
 
@@ -48,7 +48,7 @@ brew install tenstorrent/tools/tracy
 ```
 ---
 
-## 2. Tracy from a custom branch (`tracy-experimental`)
+## Tracy from a custom branch (`tracy-experimental`)
 
 Builds the profiler GUI from **`archive/refs/heads/<branch>.tar.gz`** on **github.com/tenstorrent/tracy**.  
 Stable **`tracy`** and **`tracy-experimental`** both install a `tracy` binary, so **do not** install both.
@@ -93,4 +93,6 @@ To bump the stable `tracy` formula to a new release tag or commit, use the helpe
 
 Copyright 2026 Tenstorrent USA, Inc.
 
-The formulae and scripts in this repository are licensed under the [Apache License 2.0](LICENSE). Tracy itself is licensed under the [BSD 3-Clause License](https://github.com/wolfpld/tracy/blob/master/LICENSE).
+The formulae and scripts in this repository are licensed under the [Apache License 2.0](LICENSE). See [LICENSE_understanding.txt](LICENSE_understanding.txt) for additional clarification on patents and related rights.
+
+Tracy itself is licensed under the [BSD 3-Clause License](https://github.com/wolfpld/tracy/blob/master/LICENSE); see [NOTICE](NOTICE) for attribution.
