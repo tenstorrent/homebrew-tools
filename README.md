@@ -15,6 +15,12 @@ Both formulae install a `tracy` binary (the profiler GUI) and **cannot be instal
 
 ---
 
+## Requirements
+
+- **macOS** (Intel or Apple Silicon) or **Linux** (via [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux))
+- [Homebrew](https://brew.sh) installed
+- For `tracy-experimental --build-from-source`: Xcode Command Line Tools on macOS (`xcode-select --install`) or equivalent build tools on Linux (`cmake`, `make`)
+
 ## Getting Started
 
 For a normal install of the latest **stable** Tracy GUI:
@@ -74,6 +80,14 @@ brew link tracy-experimental --overwrite
 brew update
 HOMEBREW_TRACY_BRANCH=your/feature-branch brew reinstall tenstorrent/tools/tracy-experimental --build-from-source
 ```
+
+---
+
+## Platform Support
+
+Both formulae support **macOS** (Intel and Apple Silicon) and **Linux** via [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux). On Linux, additional dependencies (`dbus`, `libxkbcommon`) are installed automatically.
+
+> **Note:** The tap name used with Homebrew is `tenstorrent/tools`. Homebrew derives this by stripping the `homebrew-` prefix from the GitHub repository name `homebrew-tools`.
 
 ---
 

@@ -1,4 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 Tenstorrent USA, Inc.
 class TracyExperimental < Formula
   desc "Tracy profiler GUI from tenstorrent/tracy (arbitrary branch via env)"
   homepage "https://github.com/wolfpld/tracy"
