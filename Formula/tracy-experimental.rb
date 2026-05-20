@@ -38,7 +38,22 @@ class TracyExperimental < Formula
     buildpath.children.each { |p| rm_rf p }
 
     curl = ENV.fetch("HOMEBREW_CURL_PATH", "curl")
-    system curl, "-fL", tarball_url, "-o", "tracy-src.tgz"
+    unless quiet_system curl, "-fL", tarball_url, "-o", "tracy-src.tgz"
+      odie <<~EOS
+        Failed to download Tracy sources for branch "#{branch}".
+
+        Expected archive:
+          #{tarball_url}
+
+        A missing branch or typo usually produces HTTP 404. Use a real branch name from github.com/tenstorrent/tracy (README placeholders like your/feature-branch are not valid). List branches:
+
+          git ls-remote --heads https://github.com/tenstorrent/tracy.git
+
+        Example:
+
+          HOMEBREW_TRACY_BRANCH=your/feature-branch brew install --HEAD #{full_name} --build-from-source
+      EOS
+    end
     system "tar", "-xzf", "tracy-src.tgz", "--strip-components=1"
 
     unless File.exist?("profiler/CMakeLists.txt")
@@ -126,7 +141,7 @@ class TracyExperimental < Formula
     <<~EOS
       Pick the Git branch with HOMEBREW_TRACY_BRANCH (same line as brew).
 
-        HOMEBREW_TRACY_BRANCH=your/branch brew install #{full_name} --build-from-source
+        HOMEBREW_TRACY_BRANCH=your/feature-branch brew install --HEAD #{full_name} --build-from-source
 
       If brew reports "installed but not linked", unlink the stable formula if needed, then:
 

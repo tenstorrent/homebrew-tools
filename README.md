@@ -19,7 +19,7 @@ Both formulae install a `tracy` binary (the profiler GUI) and **cannot be instal
 
 - **macOS** (Intel or Apple Silicon) or **Linux** (via [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux))
 - [Homebrew](https://brew.sh) installed
-- For `tracy-experimental --build-from-source`: Xcode Command Line Tools on macOS (`xcode-select --install`) or equivalent build tools on Linux (`cmake`, `make`)
+- For `tracy-experimental --HEAD --build-from-source`: Xcode Command Line Tools on macOS (`xcode-select --install`) or equivalent build tools on Linux (`cmake`, `make`)
 
 ## Getting Started
 
@@ -61,6 +61,16 @@ Stable **`tracy`** and **`tracy-experimental`** both install a `tracy` binary, s
 
 Set **`HOMEBREW_TRACY_BRANCH`** on the **same line** as `brew` so Homebrew keeps the variable (see [environment variables](https://docs.brew.sh/Formula-Cookbook#using-environment-variables)).
 
+**Important:** That value must be a **real branch name** on **[tenstorrent/tracy](https://github.com/tenstorrent/tracy)**. Names such as `your/feature-branch` in examples are placeholders only — using them verbatim produces HTTP **404** from GitHub and the install will fail before `brew link`.
+
+To list remote branches:
+
+```bash
+git ls-remote --heads https://github.com/tenstorrent/tracy.git
+```
+
+`tracy-experimental` is a **HEAD-only** formula, so Homebrew requires **`--HEAD`** on first install commands.
+
 **`brew update-reset`** resets Homebrew core and all taps to match GitHub (discards local edits to taps). You may need to **`brew tap`** again afterward.
 
 ### Install from scratch (clean slate)
@@ -70,7 +80,8 @@ brew uninstall tracy 2>/dev/null || true
 brew uninstall tracy-experimental 2>/dev/null || true
 brew update-reset
 brew tap tenstorrent/tools
-HOMEBREW_TRACY_BRANCH=your/feature-branch brew install tenstorrent/tools/tracy-experimental --build-from-source
+# Replace with your branch (example below is a real branch on tenstorrent/tracy):
+HOMEBREW_TRACY_BRANCH=your/feature-branch brew install --HEAD tenstorrent/tools/tracy-experimental --build-from-source
 brew link tracy-experimental --overwrite
 ```
 
@@ -87,7 +98,7 @@ HOMEBREW_TRACY_BRANCH=your/feature-branch brew reinstall tenstorrent/tools/tracy
 
 Both formulae support **macOS** (Intel and Apple Silicon) and **Linux** via [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux). On Linux, additional dependencies (`dbus`, `libxkbcommon`) are installed automatically.
 
-> **Note:** The tap name used with Homebrew is `tenstorrent/tools`. Homebrew derives this by stripping the `homebrew-` prefix from the GitHub repository name `homebrew-tools`.
+> **Note:** The tap name used with Homebrew is `tenstorrent/tools`.
 
 ---
 
