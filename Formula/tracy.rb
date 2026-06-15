@@ -7,7 +7,7 @@ class Tracy < Formula
   # Stable: pinned GitHub archive + checksum (bump via scripts/bump_tracy_formula.py).
   stable do
     url "https://github.com/tenstorrent/tracy/archive/refs/tags/v0.13.1-tt.0.tar.gz"
-    sha256 "98911ee9a6b4faaf7732535dae56b62c6de03360095f4c6d2d4a172068e611f7"
+    sha256 "5e1ea4a449a710644b1bdc584c4530504034d9c8af87d36f8c514cc6149bddc0"
   end
 
   # Pin a single commit (edit locally or PR): set revision on head, e.g.
