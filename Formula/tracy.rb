@@ -6,8 +6,9 @@ class Tracy < Formula
 
   # Stable: pinned GitHub archive + checksum (bump via scripts/bump_tracy_formula.py).
   stable do
-    url "https://github.com/tenstorrent/tracy/archive/refs/tags/v0.13.3-tt.0.tar.gz"
-    sha256 "dabfd996e3c6675cc6d3821a6058957d3a3b11976eb3e7ea8d8e12258e58d01b"
+    url "https://github.com/tenstorrent/tracy/archive/refs/tags/v0.14.1-tt.0.tar.gz"
+    version "0.14.1-tt.0"
+    sha256 "7a2c27915eac7417173ccbe4cac11fc80015f05ecb8eb042cd10b9e634e64a64"
   end
 
   # Pin a single commit (edit locally or PR): set revision on head, e.g.
@@ -38,7 +39,7 @@ class Tracy < Formula
   end
 
   test do
-    assert_match(/Tracy Profiler 0\.13\.3/, shell_output("#{bin}/tracy --help"))
+    assert_match(/Tracy Profiler 0\.14\.1/, shell_output("#{bin}/tracy --help"))
 
     port = free_port
     pid = fork do
